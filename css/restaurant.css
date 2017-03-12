@@ -205,14 +205,26 @@ a[ui-sref="admin.auth"] {
   color: #000;
 }
 
+/*.form-label {
+  margin-top: 2%;
+}*/
+
+.signup-form div {
+  margin: 2% 0;
+}
+
 .signup-form button {
   color: #000;
+}
+
+.tip {
+  margin-left: 2%;
 }
 
 .ng-touched.ng-valid {
   border: 2px green solid;
 }
 
-.ng-touched.ng-iinvalid {
+.ng-touched.ng-invalid {
   border: 2px red solid;
 }

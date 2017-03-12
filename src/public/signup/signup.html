@@ -1,28 +1,97 @@
 <div class="sign-up-container">
   <h2 id="sign-up-title" class="text-center">Sign Up</h2>
 
-  <div ng-controller="SignupController">
+  <div>
     <form class="signup-form" name="signupForm" novalidate>
-      <span>First Name</span>
-      <input type="text" name="firstName" ng-model="SignupController.name" required min-length="3"></input><br/>
-      <span ng-if="signupForm.firstName.$error.required && signupFormn.name.$touched">
-        Name is required
-      </span>
+      <div class="col-xs-12">
+        <span class="form-label col-xs-12 col-sm-3">First Name</span>
+        <input
+          class="col-xs-12 col-sm-3"
+          type="text"
+          name="firstName"
+          placeholder="First name"
+          ng-model="SignupCtrl.name"
+          required
+          minlength="4">
+        <span class="tip" ng-if="signupForm.firstName.$error.required && signupForm.firstName.$touched">
+          Name is required
+        </span>
+        <span class="tip" ng-if="signupForm.firstName.$error.minlength && signupForm.firstName.$touched">
+          Name must be 4 characters or longer
+        </span>
+      </div>
 
+      <div class="col-xs-12">
+        <span class="form-label col-xs-12 col-sm-3">Last Name</span>
+        <input
+          class="col-xs-12 col-sm-3"
+          type="text"
+          name="lastName"
+          placeholder="Last name"
+          ng-model="SignupCtrl.lastName"
+          required
+          minlength="4">
+        <span class="tip" ng-if="signupForm.lastName.$error.required && signupForm.lastName.$touched">
+          Last name is required
+        </span>
+        <span class="tip" ng-if="signupForm.lastName.$error.minlength && signupForm.lastName.$touched">
+          Last name must be 4 characters or longer
+        </span>
+      </div>
 
-      <span>Last Name</span>
-      <input type="text" name="lastName" ng-model="SignupController.lastName"></input><br/>
+      <div class="col-xs-12">
+        <span class="form-label col-xs-12 col-sm-3">Email Address</span>
+        <input
+          class="col-xs-12 col-sm-3"
+          type="email"
+          name="emailAddress"
+          placeholder="Email address"
+          ng-model="SignupCtrl.email"
+          required>
+        <span class="tip" ng-if="signupForm.emailAddress.$invalid && signupForm.emailAddress.$touched">
+          Email address must be of type addr@domain
+        </span>
+      </div>
 
-      <span>Email Address</span>
-      <input type="text" name="emailAddress" ng-model="SignupController.email"></input><br/>
+      <div class="col-xs-12">
+        <span class="form-label col-xs-12 col-sm-3">Telephone Number</span>
+        <input
+          class="col-xs-12 col-sm-3"
+          type="text"
+          name="telephoneNumber"
+          placeholder="Telephone number"
+          ng-model="SignupCtrl.telephone"
+          required
+          pattern="(\d{3}).?(\d{3}).?(\d{4})">
+        <span class="tip" ng-if="signupForm.telephoneNumber.$invalid && signupForm.telephoneNumber.$touched">
+          Telephone Number must be 10 digits long
+        </span>
+      </div>
 
-      <span>Telephone Number</span>
-      <input type="text" name="telephoneNumber" ng-model="SignupController.telephone"></input><br/>
+      <div class="col-xs-12">
+        <span class="form-label col-xs-12 col-sm-3">Favourite Dish</span>
+        <input
+          class="col-xs-12 col-sm-3"
+          type="text"
+          name="favouriteDish "
+          placeholder="Favourite dish"
+          ng-model="SignupCtrl.dish">
+      </div>
 
-      <button id="submit-button" ng-disabled="signupForm.$invalid" ng-click="SignupController.go()">
+      <button id="submit-button" ng-disabled="signupForm.$invalid" ng-click="SignupCtrl.go()">
         Submit
       </button>
     </form>
-    <h3>"{{menuItemsCtrl.name}}"</h3>
+
+    <div class="col-xs-12" ng-if="SignupCtrl.saved">
+      <span>
+        Your information has been saved
+      </span>
+    </div>
+    <div class="col-xs-12" ng-if="SignupCtrl.notExists">
+      <span>
+        No such menu number exists
+      </span>
+    </div>
   </div>
 </div>

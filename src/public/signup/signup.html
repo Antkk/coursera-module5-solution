@@ -1,0 +1,28 @@
+<div class="sign-up-container">
+  <h2 id="sign-up-title" class="text-center">Sign Up</h2>
+
+  <div ng-controller="SignupController">
+    <form class="signup-form" name="signupForm" novalidate>
+      <span>First Name</span>
+      <input type="text" name="firstName" ng-model="SignupController.name" required min-length="3"></input><br/>
+      <span ng-if="signupForm.firstName.$error.required && signupFormn.name.$touched">
+        Name is required
+      </span>
+
+
+      <span>Last Name</span>
+      <input type="text" name="lastName" ng-model="SignupController.lastName"></input><br/>
+
+      <span>Email Address</span>
+      <input type="text" name="emailAddress" ng-model="SignupController.email"></input><br/>
+
+      <span>Telephone Number</span>
+      <input type="text" name="telephoneNumber" ng-model="SignupController.telephone"></input><br/>
+
+      <button id="submit-button" ng-disabled="signupForm.$invalid" ng-click="SignupController.go()">
+        Submit
+      </button>
+    </form>
+    <h3>"{{menuItemsCtrl.name}}"</h3>
+  </div>
+</div>

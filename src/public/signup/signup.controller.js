@@ -24,6 +24,7 @@ function SignupController(MenuService) {
     {
       $ctrl.saved = true;
       $ctrl.notExists = false;
+      MenuService.setMyInfo($ctrl.name, $ctrl.lastName, $ctrl.email, $ctrl.telephone, $ctrl.dish);
     })
     .catch(function(err)
     {

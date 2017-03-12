@@ -1,3 +1,18 @@
 <div class="my-info-container">
   <h2 id="my-info-title" class="text-center">My Info</h2>
+  <div ng-if="InfoCtrl.signedUp">
+    <div>
+      <p>Name: {{InfoCtrl.name}}</p>
+      <p>Surname: {{InfoCtrl.lastName}}</p>
+      <p>Email: {{InfoCtrl.email}}</p>
+      <p>Phone: {{InfoCtrl.telephone}}</p>
+      <p>Favourite: {{InfoCtrl.dish}}</p>
+    </div>
+    <div>
+      <img src="http://antkk-course5.herokuapp.com/images/{{InfoCtrl.dish}}.jpg"> 
+    </div>
+  </div>
+  <div ng-if="!InfoCtrl.signedUp">
+    <p>Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></p>
+  </div>
 </div>
